@@ -31,7 +31,7 @@ function App() {
         </div>
 
         <div className="Card">
-          <b>Counter Value</b>
+          <b>Counter</b>
           <div>{counter_value ?? "Loading..."}</div>
         </div>
 
