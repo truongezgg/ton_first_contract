@@ -2,6 +2,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import "./App.css";
 import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
+import { fromNano } from "@ton/core";
 
 // EQDIIsKaNy6ZiymOePonfvaIADmFwfBgy5wKL_Swi3TG-SDa
 
@@ -27,7 +28,11 @@ function App() {
           <b>Our contract Address</b>
           <div className="Hint">{contract_address?.slice(0, 30) + "..."}</div>
           <b>Our contract Balance</b>
-          <div className="Hint">{contract_balance?.toString()}</div>
+          <div className="Hint">
+            {Number(
+              fromNano(contract_balance?.toString() || "0").toString()
+            ).toFixed(4)}
+          </div>
         </div>
 
         <div className="Card">
